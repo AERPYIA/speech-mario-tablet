@@ -1,0 +1,482 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+@font-face {
+  font-family: 'mario';
+  src: url("font/SuperMario256.ttf");
+}
+
+/* topo do cenario & Voz*/
+.topo{
+  width: 100%;
+}
+.topo .pontuacao{
+  margin-top: 12px;
+  margin-left: 9%;
+  position: absolute;
+  font-size: 24px;
+  color: #0446fc;
+  font-family: 'mario';
+}
+.topo .pontuacao-2{
+  margin-top: 25px;
+  margin-left: -57%;
+  position: absolute;
+  font-family: 'mario';
+}
+
+.topo .tempo{
+  margin-top: 12px;
+  margin-left: 82%;
+  position: absolute;
+  font-size: 24px;
+  color: #0446fc;
+  font-family: 'mario';
+}
+.topo .tempo-2{
+  margin-top: 25px;
+  margin-left: -58%;
+  position: absolute;
+  font-family: 'mario';
+}
+
+.topo .speech{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10; 
+  margin-left: auto;
+  margin-right: auto;
+}
+.voz button{
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 1px;
+  margin-bottom: 10px;
+}
+.speech .voz button{
+  margin-top: 5px;
+}
+.speech .jspeech{
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.textarea{
+  min-width: 200px;
+  max-width: 500px;
+  min-height: 40px;
+  max-height: 40px;
+}
+.speech .textarea{
+  min-height: 30px;
+}
+.fas{
+  font-weight: 600;
+  font-size: 3rem;
+  min-width: 4rem;
+  height: 10px;
+}
+
+
+/*cenario*/
+
+.cenario {
+  width: 100%;
+  height: 100vh;
+  border-bottom: 37px solid rgb(25, 175, 25);
+  margin: 0 auto;
+  position: relative; 
+  overflow: hidden;
+  background: linear-gradient(
+    #87ceeb,
+    #e6f6ff
+  ); 
+}
+
+.pipe {
+  position: absolute; 
+  bottom: 0;
+  width: 80px;
+  animation: pipe-animation 5s infinite linear; 
+}
+.pipe.desabilitar{
+  display: none;
+}
+.pipe.active{
+  display: flex;
+}
+
+.moeda{
+  position: absolute;
+  bottom: 102px;
+  width: 80px;
+  animation: pipe-animation 5s infinite linear; 
+  display: none;
+  opacity: 0;
+}
+.moeda.desabilitar{
+  display: none;
+}
+.moeda.active{
+  display: flex;
+}
+
+.mario {
+  width: 150px;
+  position: absolute;
+  bottom: 0;
+  margin-left: 0;
+  z-index: 2;
+}
+.jump{
+  animation: jump 2500ms  ease-out;    
+
+}
+
+.clouds {
+  position: absolute;
+  width: 400px;
+  animation: clouds-animation 20s infinite linear;
+  z-index: 1;
+}
+
+.cogumelo {
+  position: absolute;
+  width: 100px;
+  animation: cogumelo-animation 8s infinite linear;
+  bottom: 75%;
+  z-index: 1;
+}
+
+@keyframes pipe-animation {
+  from {
+    right: 0; 
+  }
+  to {
+    right: 100%; 
+  }
+}
+
+
+
+@keyframes jump{
+  0%{
+      bottom: 0;
+  }
+  40%{
+      bottom: 180px;
+  }
+  60% {
+      bottom: 180px;
+  }
+
+  100%{
+      bottom: 0;
+  }
+}
+
+
+@keyframes clouds-animation {
+  from {
+    right: -400px;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes cogumelo-animation {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+
+/*modals*/
+
+.modal {
+  width: 100%;
+  height: 120%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.modal.desabilitar {
+  display: none;
+}
+
+.modal .modal-start {
+  max-width: 750px;
+  max-height: 580px;
+  width: 45%;
+  height: 75%;
+  background-image: url("img/fundo-start.png");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 2px 2px 20px #ffc900;
+  padding: 50px;
+  border-radius: 25px;
+  display: none;
+}
+
+.modal .modal-start.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fade-up 1s forwards;
+}
+
+.modal .modal-start .titulo {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #00ae33;
+  -webkit-text-stroke: 2px black;
+}
+
+.modal .modal-start .regra {
+  text-align: center;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+  padding: 2%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.modal .modal-start .input-jogador {
+  max-width: 420px;
+  width: 80%;
+  height: 50px;
+  border: solid 3px #0097d3;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
+  outline: none;
+}
+
+.modal .modal-game-over {
+  max-width: 780px;
+  max-height: 650px;
+  width: 45%;
+  height: 75%;
+  background-image: linear-gradient(#0097d3, #e7e7e7);
+  box-shadow: 2px 2px 20px #0097d3;
+  padding: 50px;
+  border-radius: 25px;
+  display: none;
+}
+
+.modal .modal-game-over.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fade-up 1s forwards;
+  width: 50%;
+  height: 85%;
+}
+
+.modal .modal-game-over .titulo {
+  font-size: 36px;
+  text-align: center;
+  margin: 20px 0px;
+  color: #ff201c;
+  -webkit-text-stroke: 2px black;
+
+}
+
+.modal .modal-game-over .img-game-over {
+  width: 50%;
+  max-width: 450px;
+}
+
+.modal .modal-game-over .wrapper-btn {
+  display: flex;
+  gap: 30px;
+  white-space: normal;
+}
+
+.modal .modal-ranking {
+  width: 60%;
+  height: 98%;
+  background-image: linear-gradient(#0097d3, #e2e2e2);
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 2px 2px 20px #0097d3;
+  padding: 50px;
+  border-radius: 30px;
+  display: none;
+}
+
+.modal .modal-ranking.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fade-up 1s forwards;
+}
+
+.modal .modal-ranking .titulo {
+  font-size: 36px;
+  text-align: center;
+  margin: 20px 0px;
+  color: #0da831;
+  position: absolute;
+  margin-top: -38%;
+  -webkit-text-stroke: 2px black;
+
+  
+}
+.modal .modal-ranking.active .main-tabela{
+  width: 60%;
+  min-height: 20%;
+  max-height: 60%;
+  overflow-y: scroll;
+  position: static;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 5%;
+  margin-top: 15%;
+  z-index: 1;
+  
+}
+.main-tabela .tabela{
+  width: 100%;
+  overflow-x: scroll;
+  text-align: center;
+}
+
+.modal .modal-ranking .main-tabela::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal .modal-ranking .main-tabela::-webkit-scrollbar-thumb {
+  background: #0097d3;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  border-right: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+.modal .modal-ranking .main-tabela::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+.modal .modal-ranking .main-tabela td {
+  padding: 8px;
+}
+
+.cab-posicao{
+  width: 12%;
+}
+.cab-jogador{
+  width: 64%;
+}
+
+
+.posicao-tabela { 
+  width: 15%;
+}
+.nome-tabela {
+  width: 40%;  
+}
+.pontuacao-tabela{
+  width: 19%;
+}
+.tempo-tabela{
+  width: 12%;
+}
+
+
+
+.modal .img-mario-bandeira {
+  position: absolute;
+  bottom:0%;
+  max-width:20%;
+  width: auto;
+  margin-right: 41.5%;
+}
+.modal .img-mario-trofeu{
+  position: absolute;
+  bottom: 1%;
+  max-width:15%;
+  width: auto;
+  margin-left: 43%;
+}
+
+
+
+.modal .btn-modal {
+  background: none;
+  width: 60%;
+  height: 20%;
+  position: relative;
+  justify-content: center;
+  align-content: flex-end;
+  background-color: #bd827c;
+  text-transform: uppercase;
+  padding: 15px;
+  margin: 15px 0px;
+  font-size: 34px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 3px;
+  
+}
+
+.modal .btn-red-tr:not(:disabled) {
+  cursor: pointer;
+  background-color: #ff201c;
+}
+
+.modal .btn-reiniciar,
+.modal .btn-ranking {
+  width: 40VH;
+  height: 60px;
+  font-size: 30px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.azul {
+  color: #0097d3;
+}
+
+.amarelo {
+  color: #ffc900;
+}
+
+.vermelho {
+  color: #ff201c;
+}
+
+.verde {
+  color: #00ae33;
+}
+
+

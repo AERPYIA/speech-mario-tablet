@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link rel="website icon" type="png" href="img/mario icon.png" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="./script.js" defer></script>
+  <script src="https://kit.fontawesome.com/cf6fa412bd.js" crossorigin="anonymous"></script>
+
+  <title>Jogo Mário</title>
+
+</head>
+
+<body>
+  <section class="modal " id="modal">
+    <section class="modal-start active " id="modalStart">
+      <h1 class="titulo"><span class="azul">VOCÊ</span> <span class="amarelo">ESTÁ</span> <span
+          class="vermelho">PRONTO?</span></h1>
+
+      <input type="text" class="input-jogador" id="inputJogador" placeholder="Jogador..." onfocus="true" >
+      <button class="btn-modal btn-red-tr btn-start" id="btnStart" >Iniciar!</button>
+      <p class="regra"><span class="vermelho">Instruções:</span> <span class="azul">Fala </span><span
+          class="vermelho">"nome" + o nome que deseja </span><span class="azul"> para ter seu nick, </span> <span
+          class="vermelho"> "pular" <span class="azul">para pular, </span><span class="vermelho">"iniciar"</span>
+          <span class="azul">para começar,</span> <span class="vermelho">"reiniciar"<span class="azul"> para
+              reiniciar e </span> <span class="vermelho">"Ranking"</span> <span class="azul">para mostrar os
+              rankings!</span></p>
+
+      <div class="voz">
+        <button id="btnGravarmodal"><i class="fas fa-microphone"></i></button>
+        <button id="btnPararmodal" disabled><i class="fas fa-microphone-slash"></i></button>
+      </div>
+      <textarea id="textareamodal" class="textarea" disabled></textarea>
+
+    </section>
+
+    <section class="modal-game-over" id="modalGameOver">
+      <h1 class="titulo"><span class="azul">HAHA!</span> <span class="amarelo">você</span> <span
+          class="vermelho">foi</span> <span class="verde">zoado!</span></h1>
+      <img src="img/mariogover.gif" class="img-game-over">
+      <div class="wrapper-btn">
+        <button class="btn-modal btn-red-tr btn-ranking" id="btnRanking">Ranking</button>
+        <button class="btn-modal btn-red-tr btn-reiniciar" id="btnReiniciar">restart</button>
+      </div>
+      <div class="voz">
+        <button id="btnGravargover"><i class="fas fa-microphone"></i></button>
+        <button id="btnParargover" disabled><i class="fas fa-microphone-slash"></i></button>
+    </section>
+
+    <section class="modal-ranking" id="modalRanking">
+      <h1 class="titulo">Ranking</h1>
+      <div class="main-tabela" id="main-tabela">
+        <table class="tabela" border="1" id="tabela-ranking">
+          <tr class="cabecalho">
+            <td class="cab-posicao">Posição</td>
+            <td class="cab-jogador">Jogador</td>
+            <td>Pontuação</td>
+            <td>tempo</td>
+          </tr>
+        </table>
+      </div>
+
+      <button class="btn-modal btn-red-tr btn-reiniciar" id="btnReiniciar">restart</button>
+
+      <img src="img/mario bandeira jspeech.png" class="img-mario-bandeira">
+      <img src="img/mario trofeu.png" class="img-mario-trofeu">
+    </section>
+
+  </section>
+  
+  <div class="cenario" id='cenario'>
+      <div class="topo">
+        <div class="pontuacao">Pontos: <span id="pontuacao" class="pontuacao-2">0</span></div>
+        <div class="tempo">Tempo: <span id="tempo" class="tempo-2">0</span></div>
+        <div class="speech">
+          <p id="jspeech" class="jspeech">Jspeech</p>
+          <textarea id="textarea" class="textarea" disabled></textarea>
+        <div class="voz">
+          <button id="btnGravar"><i class="fas fa-microphone"></i></button>
+          <button id="btnParar" disabled><i class="fas fa-microphone-slash"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <img src="./img/mario.gif" class="mario" />
+    <img src="./img/pipe.png" class="pipe" />
+    <img src="./img/Moeda.png" class="moeda" id="moeda" />
+    <img src="./img/clouds.png" class="clouds" />
+    <img src="./img/cogumelo.gif" class="cogumelo" />
+  </div>
+
+  <audio src="audios/smb_gameover.wav" id="somGameover"></audio>
+  <audio src="audios/smb_jump-super.wav" id="somPulo"></audio>
+  <audio src="audios/somCenario.mp3" id="somCenario"></audio>
+  <audio src="audios/lets go.mp3" id="somLetgo"></audio>
+  <audio src="audios/mariostart.mp3" id="marioStart"></audio>
+
+</body>
+</html>
