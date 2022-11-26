@@ -1,5 +1,5 @@
 <div>
-    <a href="https://aerpyia.github.io/speech-mario/">
+    <a href="https://aerpyia.github.io/speech-mario-tablet/">
     <img src="https://user-images.githubusercontent.com/92689246/203882618-397f7090-8572-4f0a-a1f1-5d7bea5a13a0.png">
 </div>
 
